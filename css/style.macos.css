@@ -1,0 +1,24 @@
+/* Header: Drag Region */
+header {
+    -webkit-app-region: drag;
+}
+
+/* Header: Burger Menu */
+header>div:nth-child(2)>div:first-of-type>div:first-of-type,
+/* Header: Search */
+form,
+/* Header: Support */
+header>div:nth-child(2)>div:nth-child(2)>div:last-of-type>a:first-of-type,
+header>div:nth-child(2)>div:nth-child(2)>div:last-of-type>div:first-of-type,
+/* Header: Settings */
+header>div:nth-child(2)>div:nth-child(2)>div:last-of-type>div:last-of-type,
+/* Header: Account */
+header div[href*='accounts.google.com'] {
+    -webkit-app-region: no-drag;
+}
+
+/* Header: Burger Menu */
+header>div:nth-child(2)>div:first-of-type {
+    min-width: auto !important;
+    margin-left: 70px !important;
+}

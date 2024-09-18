@@ -1,0 +1,64 @@
+{
+  "name": "gmail-client",
+  "version": "0.0.1",
+  "description": "Simple gmail client, based on electron and https://mail.google.com",
+  "main": "output/index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "tsc && electron .",
+    "build:macos": "electron-builder --macos --universal --publish never",
+    "build:linux": "electron-builder --linux --publish never",
+    "build:windows": "electron-builder --windows --publish never"
+  },
+  "type": "commonjs",
+  "dependencies": {
+    "electron-debug": "^3.2.0",
+    "electron-dl": "^3.2.0",
+    "electron-log": "^5.2.0",
+    "electron-store": "^8",
+    "electron-updater": "^6.3.4",
+    "electron-util": "^0.14.2",
+    "element-ready": "^7.0.0",
+    "got": "^11.8.6",
+    "p-wait-for": "^3.2.0",
+    "typescript": "^5.6.2"
+  },
+  "devDependencies": {
+    "electron": "^32.1.0",
+    "electron-builder": "^23",
+    "electron-notarize": "^1.2.2"
+  },
+  "build": {
+    "artifactName": "${name}-${version}-${os}.${ext}",
+    "files": [
+      "**/*",
+      "!media${/*}",
+      "!scripts${/*}"
+    ],
+    "appId": "com.wencfy.gmail-client",
+    "mac": {
+      "icon": "static/Gmail.icns",
+      "category": "public.app-category.productivity",
+      "darkModeSupport": true,
+      "hardenedRuntime": true
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb",
+        "rpm",
+        "pacman",
+        "snap",
+        "tar.bz2"
+      ],
+      "category": "Network;Office"
+    },
+    "win": {
+      "verifyUpdateCodeSignature": false,
+      "target": [
+        "nsis",
+        "zip"
+      ]
+    }
+  }
+}
